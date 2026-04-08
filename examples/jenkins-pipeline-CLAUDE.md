@@ -19,7 +19,6 @@ my-app/
 
 ### 1) Jenkins Parameters
 
-- Environment: [choice: dev/uat/prod or NONE]
 - [PARAMETER NAME]: [type: choice/string or NONE]
 
 ### 2) Jenkins Credentials
