@@ -9,8 +9,6 @@ Before asking Claude to create a Jenkins pipeline, have ready:
 - [ ] Required Jenkins plugins installed: Pipeline, Docker, AnsiColor (if using color output)
 - [ ] Jenkins credentials already configured (GitHub tokens, API keys, etc.) or list what you need to create
 - [ ] Target Docker registry access configured (docker.io, private registry, etc.)
-- [ ] Have the application/code repository URL ready
-- [ ] Know the technology stack (Python, Node.js, Java, etc.)
 
 ## Overview
 
