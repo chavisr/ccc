@@ -19,10 +19,21 @@ my-app/
 
 Application: [GITHUB/GITLAB REPO URL]
 Technology: [TECH STACK - e.g., Python 3.11, pytest]
-Target environments: [dev/uat/prod]
-Required credentials: [LIST CREDENTIAL IDs - e.g., github-token, docker-registry]
+
+### 1) Jenkins Parameters
+
+- Environment: [choice: dev/uat/prod or NONE]
+- [PARAMETER NAME]: [type: choice/string or NONE]
+
+### 2) Jenkins Credentials
+
+- [CREDENTIAL ID]: [TYPE - e.g., github-token, docker-registry, api-key]
+- [CREDENTIAL ID]: [TYPE]
+
+### 3) Docker Image to Run
+
+Image: [DOCKER IMAGE - e.g., python:3.11, node:20, ubuntu:22.04]
 Timeout: [X minutes]
-Special requirements: [APPROVAL GATES, NOTIFICATIONS, etc. or NONE]
 
 ## When Working on This
 
