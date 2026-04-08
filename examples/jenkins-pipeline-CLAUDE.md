@@ -17,9 +17,6 @@ my-app/
 
 ## This Project
 
-Application: [GITHUB/GITLAB REPO URL]
-Technology: [TECH STACK - e.g., Python 3.11, pytest]
-
 ### 1) Jenkins Parameters
 
 - Environment: [choice: dev/uat/prod or NONE]
