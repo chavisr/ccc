@@ -33,23 +33,41 @@ When the user asks you to create a Marp presentation, follow this interactive wo
   - Use more visuals and metaphors
   - Keep slides simpler with less text
 
-### Step 2: Presentation Topic and Scope
-**Ask:** "What is the topic and key points to cover?"
+### Step 2: Presentation Topic and Goal
+**Ask:** "What is the presentation topic and what is the goal?"
 - Get main topic/title
-- Ask for 3-5 key sections or points to cover
-- Understand the goal: inform, persuade, educate, pitch?
+- Understand the goal: inform, persuade, educate, pitch, demo?
 
-### Step 3: Duration and Slide Count
-**Ask:** "How long is the presentation and approximately how many slides?"
-- Common patterns:
-  - Lightning talk (5 min): 5-8 slides
-  - Short presentation (15 min): 10-15 slides
-  - Standard presentation (30 min): 15-25 slides
-  - Long presentation (45-60 min): 25-40 slides
+### Step 3: Specific Slide Structure
+**Ask:** "What specific slides do you want in your presentation? Please list the exact sections/topics you need."
 
-### Step 4: Visual Assets
+**Provide examples to guide user:**
+- Title slide (always included automatically)
+- Agenda/Table of Contents
+- Introduction/Background
+- Problem Statement
+- Solution/Approach
+- Technical Architecture
+- Code Examples
+- Demo/Screenshots
+- Results/Metrics
+- Customer Success Stories
+- ROI/Business Impact
+- Roadmap/Next Steps
+- Lessons Learned
+- Q&A slide (always included automatically)
+- Thank You slide (always included automatically)
+
+**Important:** Only generate the slides the user explicitly requests. Do not add extra slides unless user asks for them.
+
+### Step 4: Duration and Slide Count
+**Ask:** "Approximately how many slides for each section you mentioned?"
+- Help user estimate: Lightning talk (5-8 total), Short (10-15), Standard (15-25), Long (25-40)
+- Get specific counts for sections with multiple slides (e.g., "3 slides for technical architecture")
+
+### Step 5: Visual Assets
 **Ask:** "Do you want to include images/diagrams in the presentation?"
-- **If NO**: Skip image handling, proceed to Step 5
+- **If NO**: Skip image handling, proceed to Step 6
 - **If YES**:
   - Check if `assets/` directory exists and contains image files
   - Use `ls assets/` or `Glob` tool to find images (*.png, *.jpg, *.svg, etc.)
@@ -59,16 +77,16 @@ When the user asks you to create a Marp presentation, follow this interactive wo
     - Wait for user to confirm images are added
   - **If images found:**
     - List the available images to user
-    - Ask which specific images to use in the presentation
+    - Ask which specific images to use and in which slides
     - Use those filenames in the slides.md
 
-### Step 5: PDF Rendering
-**Ask:** "Would you like me to render the PDF after creating the slides, or will you do it yourself?"
-- **Agent renders PDF**: Use Bash tool to run `marp slides.md -o output/presentation.pdf`
+### Step 6: HTML Rendering
+**Ask:** "Would you like me to render the HTML after creating the slides, or will you do it yourself?"
+- **Agent renders HTML**: Use Bash tool to run `marp slides.md -o output/presentation.html`
   - Verify marp CLI is installed first
   - Create output/ directory if needed
   - Run the marp command and show results
-- **User renders PDF**: Just create slides.md file
+- **User renders HTML**: Just create slides.md file
   - Provide build instructions in response
   - User will run marp command themselves
 
@@ -90,8 +108,8 @@ presentation-project/
 │   └── Merriweather/     # Serif for emphasis (optional)
 ├── .marp/                 # Marp configuration (optional)
 │   └── theme.css          # Custom theme (if not using defaults)
-├── output/                # Generated PDFs
-│   └── presentation.pdf
+├── output/                # Generated HTML presentations
+│   └── presentation.html
 └── README.md              # Build instructions
 ```
 
@@ -119,7 +137,7 @@ If user wants custom fonts, recommend:
 - **JetBrains Mono**: Excellent monospace for code (https://www.jetbrains.com/lp/mono/)
 - **Merriweather**: Professional serif for headings (https://fonts.google.com/specimen/Merriweather)
 
-**Note**: Default themes are recommended for consistency and ease of PDF rendering.
+**Note**: Default themes are recommended for consistency and ease of HTML rendering.
 
 ## Marp Template for Technical Audience
 
@@ -130,7 +148,6 @@ Use this template for presentations to technical audiences:
 marp: true
 theme: default
 paginate: true
-footer: 'Your Organization | Presentation Title | YYYY-MM-DD'
 style: |
   section {
     font-size: 28px;
@@ -161,7 +178,6 @@ style: |
 
 <!-- _class: lead -->
 <!-- _paginate: false -->
-<!-- _footer: "" -->
 
 # Your Presentation Title
 
@@ -347,7 +363,6 @@ Use this template for presentations to non-technical audiences:
 marp: true
 theme: gaia
 paginate: true
-footer: 'Your Organization | Presentation Title | YYYY-MM-DD'
 style: |
   section {
     font-size: 32px;
@@ -376,7 +391,6 @@ style: |
 
 <!-- _class: lead -->
 <!-- _paginate: false -->
-<!-- _footer: "" -->
 
 # Your Presentation Title
 
@@ -658,7 +672,6 @@ Always include these frontmatter settings:
 marp: true
 theme: default          # or 'gaia' or 'uncover'
 paginate: true          # Show page numbers
-footer: 'Org | Title | Date'
 ---
 ```
 
@@ -672,7 +685,6 @@ footer: 'Org | Title | Date'
 ```markdown
 <!-- _class: lead -->
 <!-- _paginate: false -->
-<!-- _footer: "" -->
 
 # Main Title
 ## Subtitle
@@ -759,40 +771,36 @@ style: |
 ### 10. Special Slide Classes
 ```markdown
 <!-- _class: lead -->        # Centered content (title/section dividers)
-<!-- _paginate: false -->    # Hide page number
-<!-- _footer: "" -->         # Hide footer
+<!-- _paginate: false -->    # Hide page number on specific slides
 ```
 
 ## Build and Export Commands
 
-### Generate PDF
+### Generate HTML
 ```bash
 # Install Marp CLI if needed
 npm install -g @marp-team/marp-cli
 
-# Convert to PDF (default)
-marp slides.md -o output/presentation.pdf
-
-# Convert to PDF with specific theme
-marp slides.md --theme gaia -o output/presentation.pdf
-
-# Convert to HTML
+# Convert to HTML (default output)
 marp slides.md -o output/presentation.html
+
+# Convert to HTML with specific theme
+marp slides.md --theme gaia -o output/presentation.html
+
+# Watch mode (auto-rebuild on changes)
+marp -w slides.md -o output/presentation.html
+
+# Allow local files (for custom fonts/assets)
+marp slides.md --allow-local-files -o output/presentation.html
+```
+
+### Alternative Export Formats
+```bash
+# Convert to PDF (if needed)
+marp slides.md -o output/presentation.pdf
 
 # Convert to PowerPoint
 marp slides.md -o output/presentation.pptx
-
-# Watch mode (auto-rebuild on changes)
-marp -w slides.md -o output/presentation.pdf
-```
-
-### Quality Settings
-```bash
-# High-quality PDF (for printing)
-marp slides.md --pdf-outline --pdf-notes -o output/presentation.pdf
-
-# Allow local files (for custom fonts/assets)
-marp slides.md --allow-local-files -o output/presentation.pdf
 ```
 
 ## Output Format
@@ -810,10 +818,10 @@ When creating a Marp presentation, provide:
    - Proper image references to assets/
    - Appropriate theme and styling
 
-3. **PDF Rendering** (if user requested):
+3. **HTML Rendering** (if user requested):
    - Verify marp CLI is installed (`marp --version`)
    - Create output/ directory if it doesn't exist
-   - Run: `marp slides.md -o output/presentation.pdf`
+   - Run: `marp slides.md -o output/presentation.html`
    - Confirm successful generation
    - If marp CLI not installed, provide installation instructions
 
@@ -856,7 +864,7 @@ When creating a Marp presentation, provide:
 - Consistent color scheme
 - Readable font sizes (28px+ for body, 48px+ for titles)
 - Leave margins (don't fill edge-to-edge)
-- Test PDF export early
+- Test HTML export early
 
 ## Common Patterns
 
@@ -914,12 +922,14 @@ Final point
 
 When creating a presentation, verify:
 
+- [ ] Asked user to specify exact slides they want (Step 3)
+- [ ] Only generated slides user explicitly requested
 - [ ] Asked user if they want images in presentation
 - [ ] If images requested, checked assets/ directory exists and has files
 - [ ] Stopped and notified user if images requested but assets/ empty
-- [ ] Frontmatter includes marp: true, theme, paginate
+- [ ] Frontmatter includes marp: true, theme, paginate (no footer)
 - [ ] Title slide uses `<!-- _class: lead -->`
-- [ ] Footer shows organization, title, date
+- [ ] No footer watermark (only page numbers via paginate)
 - [ ] All images reference assets/ directory (if using images)
 - [ ] Code blocks use syntax highlighting (if technical)
 - [ ] Tables are formatted correctly
@@ -936,28 +946,27 @@ When creating a presentation, verify:
 
 **Agent Response:**
 1. Ask: "Who is the primary audience?" → User: "Technical - backend engineers"
-2. Ask: "What is the topic and key points?" → User: "REST API v2, architecture, migration guide"
-3. Ask: "How long and how many slides?" → User: "30 minutes, about 20 slides"
-4. Ask: "Do you want to include images/diagrams?" → User: "Yes"
+2. Ask: "What is the topic and goal?" → User: "REST API v2, goal is to educate team on new architecture"
+3. Ask: "What specific slides do you want?" → User: "Title, Agenda, Current API overview, New architecture diagram, Key changes, Code examples for auth, Migration steps (2-3 slides), Timeline, Q&A"
+4. Ask: "Approximately how many slides for each section?" → User: "About 15-18 slides total, 3 slides for migration steps, 2 for code examples"
+5. Ask: "Do you want to include images/diagrams?" → User: "Yes"
    - Check assets/ directory with `ls assets/`
    - Found: architecture-diagram.png, api-flow.png
-   - List images to user, ask which to use → User: "Use both"
-5. Ask: "Would you like me to render the PDF or will you do it yourself?" → User: "You render it"
+   - List images to user, ask which to use → User: "architecture-diagram.png for new architecture slide, api-flow.png for current API slide"
+6. Ask: "Would you like me to render the HTML or will you do it yourself?" → User: "You render it"
 
-6. Generate presentation:
-   - Use **Technical Audience Template**
+7. Generate presentation:
+   - Use **Technical Audience Template** as base
    - Theme: `default`
-   - Include code examples for API usage
-   - Reference architecture-diagram.png and api-flow.png from assets/
-   - Add section on migration steps
-   - Include metrics slide showing performance improvements
-   - Create 20 slides covering: intro, current state, new architecture, code examples, migration guide, Q&A
+   - **Only generate the slides user specified:** Title, Agenda, Current API (with api-flow.png), New architecture (with architecture-diagram.png), Key changes, 2 code example slides for auth, 3 migration steps slides, Timeline, Q&A
+   - DO NOT add extra slides like "Results/Metrics" or "Lessons Learned" since user didn't request them
+   - Create exactly ~15-18 slides as user specified
 
-7. Render PDF:
+8. Render HTML:
    - Check marp CLI is installed
    - Create output/ directory
-   - Run: `marp slides.md -o output/presentation.pdf`
-   - Confirm PDF generated successfully
+   - Run: `marp slides.md -o output/presentation.html`
+   - Confirm HTML generated successfully
 
 ---
 
@@ -967,9 +976,10 @@ When creating a presentation, verify:
 
 **Agent Response:**
 1. Ask: "Who is the primary audience?" → User: "Non-technical - executives"
-2. Ask: "What is the topic and key points?" → User: "Product overview, key features, customer success"
-3. Ask: "How long and how many slides?" → User: "15 minutes, about 12 slides"
-4. Ask: "Do you want to include images/diagrams?" → User: "Yes"
+2. Ask: "What is the topic and goal?" → User: "Product overview, goal is to get executive buy-in"
+3. Ask: "What specific slides do you want?" → User: "Title, The Challenge, Our Solution (3 key features), Results with metrics, ROI slide, Customer success story, Q&A, Thank you"
+4. Ask: "Approximately how many slides?" → User: "About 10-12 slides total"
+5. Ask: "Do you want to include images/diagrams?" → User: "Yes"
    - Check assets/ directory with `ls assets/` or Glob
    - **Result: assets/ directory is empty or doesn't exist**
    - **STOP HERE** - Do not proceed further
@@ -979,19 +989,24 @@ When creating a presentation, verify:
 **User:** "OK, I've added the images"
 
 **Agent Response:**
-- Check assets/ again
+- Check assets/ again with `ls assets/`
 - Found: logo.png, product-screenshot.png, customer-photo.jpg
-- Continue with Step 5...
+- Ask which images for which slides → User: "logo on title slide, product-screenshot on solution slide, customer-photo on success story slide"
+- Continue with Step 6...
 
 ---
 
 **Remember:**
 - Always ask about audience type FIRST (technical vs non-technical)
+- **CRITICAL Step 3**: Ask user to specify EXACTLY what slides they want - do not assume or add extra slides
+- Only generate slides the user explicitly requests (except title and Q&A which are standard)
+- Ask approximate slide counts for each section
 - Ask if user wants images; if YES, check assets/ directory exists and has files
 - **CRITICAL**: If user wants images but assets/ is empty, STOP and tell user to add images first
-- Ask if user wants PDF rendered by agent or will do it themselves
-- Use the appropriate template based on audience
-- List available images and ask which ones to use
-- Default themes are recommended for easy PDF export
+- Ask which specific images to use in which slides
+- Ask if user wants HTML rendered by agent or will do it themselves
+- Use the appropriate template as a BASE, then customize to user's specific slide list
+- No footer watermark - only page numbers (paginate: true)
+- Default themes are recommended for easy HTML export
 - Keep slides focused - one idea per slide
-- If rendering PDF, verify marp CLI is installed first
+- If rendering HTML, verify marp CLI is installed first
