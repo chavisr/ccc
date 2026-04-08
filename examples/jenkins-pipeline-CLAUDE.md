@@ -2,14 +2,6 @@
 
 This is an example CLAUDE.md file demonstrating how to use the jenkins-pipeline subagent to create Jenkins declarative pipelines.
 
-## Before You Start
-
-Before asking Claude to create a Jenkins pipeline, have ready:
-
-- [ ] Required Jenkins plugins installed: Pipeline, Docker, AnsiColor (if using color output)
-- [ ] Jenkins credentials already configured (GitHub tokens, API keys, etc.) or list what you need to create
-- [ ] Target Docker registry access configured (docker.io, private registry, etc.)
-
 ## Overview
 
 The `jenkins-pipeline` agent is a specialized subagent that helps create and review Jenkins pipelines following best practices. It generates:
