@@ -4,7 +4,7 @@ This is an example CLAUDE.md file for a project using the Marp agent to create p
 
 ## Project Purpose
 
-This project contains presentation slides created with Marp (Markdown Presentation Ecosystem). Slides are written in markdown and exported to PDF for distribution.
+This project contains presentation slides created with Marp (Markdown Presentation Ecosystem). Slides are written in markdown and exported to HTML for distribution.
 
 ## Repository Structure
 
@@ -16,8 +16,8 @@ my-presentation/
 │   ├── architecture-diagram.png
 │   ├── metrics-chart.png
 │   └── team-photo.jpg
-├── output/                # Generated PDFs
-│   └── presentation.pdf
+├── output/                # Generated HTML presentations
+│   └── presentation.html
 ├── README.md              # Build instructions
 └── CLAUDE.md              # This file (instructions for Claude)
 ```
@@ -46,9 +46,9 @@ Use the marp-slides.md agent with non-technical template
 - Emphasize ROI and outcomes
 ```
 
-### PDF Rendering Option
+### HTML Rendering Option
 The agent will ask whether to:
-- **Render PDF automatically**: Agent runs marp CLI to generate output/presentation.pdf
+- **Render HTML automatically**: Agent runs marp CLI to generate output/presentation.html
 - **User renders manually**: User runs marp command themselves after slides are created
 
 ## Build Commands
@@ -58,25 +58,19 @@ The agent will ask whether to:
 npm install -g @marp-team/marp-cli
 ```
 
-### Generate PDF
+### Generate HTML
 ```bash
-# Standard PDF export
-marp slides.md -o output/presentation.pdf
-
-# High-quality PDF (for printing)
-marp slides.md --pdf-outline --pdf-notes -o output/presentation.pdf
-
-# Watch mode (auto-rebuild on changes)
-marp -w slides.md -o output/presentation.pdf
-```
-
-### Other Export Formats
-```bash
-# HTML (for web viewing)
+# Standard HTML export
 marp slides.md -o output/presentation.html
 
-# PowerPoint (if needed)
-marp slides.md -o output/presentation.pptx
+# HTML with specific theme
+marp slides.md --theme gaia -o output/presentation.html
+
+# Watch mode (auto-rebuild on changes)
+marp -w slides.md -o output/presentation.html
+
+# Allow local files (for custom fonts/assets)
+marp slides.md --allow-local-files -o output/presentation.html
 ```
 
 ## Image Guidelines
@@ -114,18 +108,18 @@ All images should be placed in the `assets/` directory with descriptive names:
      - Topic and key points
      - Duration and slide count
      - Do you want images? (If yes, checks assets/ directory)
-     - PDF rendering preference
+     - HTML rendering preference
    - Agent generates complete slides.md
 
-4. **Build PDF**
-   - **Option A**: Agent renders PDF automatically (if chosen in step 2)
-   - **Option B**: Run `marp slides.md -o output/presentation.pdf` yourself
-   - Review PDF output
+4. **Build HTML**
+   - **Option A**: Agent renders HTML automatically (if chosen in step 2)
+   - **Option B**: Run `marp slides.md -o output/presentation.html` yourself
+   - Review HTML output in browser
    - Iterate on content as needed
 
 5. **Present**
-   - Use PDF for presenting
-   - Or use HTML with speaker notes if needed
+   - Use HTML for presenting (open in browser)
+   - HTML supports full interactivity and animations
 
 ## Agent Instructions
 
@@ -157,7 +151,7 @@ Claude, review slides.md and suggest improvements for [AUDIENCE TYPE]
 
 ## Notes
 
-- This project uses default Marp themes for easy PDF export
+- This project uses default Marp themes for easy HTML export
 - Fonts are handled automatically by themes (no custom fonts needed)
-- All presentations should export cleanly to PDF without errors
+- All presentations should export cleanly to HTML without errors
 - Keep slide content concise - aim for minimal text, maximum impact
