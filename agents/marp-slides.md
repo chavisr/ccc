@@ -794,15 +794,6 @@ marp -w slides.md -o output/presentation.html
 marp slides.md --allow-local-files -o output/presentation.html
 ```
 
-### Alternative Export Formats
-```bash
-# Convert to PDF (if needed)
-marp slides.md -o output/presentation.pdf
-
-# Convert to PowerPoint
-marp slides.md -o output/presentation.pptx
-```
-
 ## Output Format
 
 When creating a Marp presentation, provide:

@@ -100,8 +100,8 @@ The repository includes a specialized agent for creating professional presentati
 **marp-slides.md** - Creates professional presentations using Marp
 - Use for: Creating slide decks from markdown for technical or non-technical audiences
 - Templates: Complete embedded templates for both technical and non-technical presentations
-- Focus: Professional design, appropriate complexity for audience, easy PDF export
-- Option: Can render PDF automatically or let user do it manually
+- Focus: Professional design, appropriate complexity for audience, easy HTML export
+- Option: Can render HTML automatically or let user do it manually
 
 ### Marp Presentation Principles
 
@@ -111,7 +111,7 @@ The agent follows these core principles:
 - **Professional Fonts**: Relies on built-in theme fonts for portability
 - **Image Management**: Checks `assets/` directory for images; stops if user wants images but none found
 - **Structure**: Title slide, agenda, content, closing (Q&A)
-- **Export**: Designed for PDF rendering via `marp` CLI
+- **Export**: Designed for HTML rendering via `marp` CLI
 
 ### Presentation Types
 
@@ -138,8 +138,8 @@ presentation-project/
 │   ├── logo.png
 │   ├── diagram-1.png
 │   └── ...
-├── output/                # Generated PDFs
-│   └── presentation.pdf
+├── output/                # Generated HTML presentations
+│   └── presentation.html
 └── README.md              # Build instructions
 ```
 
