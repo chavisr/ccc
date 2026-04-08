@@ -1,4 +1,4 @@
-# Chavis Claude Code (ccc)
+# Chavis Claude Code
 
 Personal repository for Claude Code agents, skills, configurations, and reference materials.
 
