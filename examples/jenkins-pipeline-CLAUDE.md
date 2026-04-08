@@ -4,11 +4,8 @@ This is an example CLAUDE.md file demonstrating how to use the jenkins-pipeline 
 
 ## Before You Start
 
-Before asking Claude to create a Jenkins pipeline, ensure your Jenkins setup is ready:
+Before asking Claude to create a Jenkins pipeline, have ready:
 
-- [ ] Jenkins server is installed and running
-- [ ] At least one Jenkins agent/node is configured (or plan to use controller)
-- [ ] Docker is available on the agent(s) where pipeline will run
 - [ ] Required Jenkins plugins installed: Pipeline, Docker, AnsiColor (if using color output)
 - [ ] Jenkins credentials already configured (GitHub tokens, API keys, etc.) or list what you need to create
 - [ ] Target Docker registry access configured (docker.io, private registry, etc.)
