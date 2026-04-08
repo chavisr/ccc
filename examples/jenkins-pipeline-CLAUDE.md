@@ -10,11 +10,8 @@ Jenkins declarative pipelines for application build, test, and deployment automa
 
 ```
 my-app/
-├── Jenkinsfile              # Pipeline definition (root of repo)
-├── ci/
-│   └── script.sh            # Pipeline execution script
-├── src/                      # Application code
-├── tests/                    # Test files
+├── Jenkinsfile              # Pipeline definition
+├── script.sh                # Pipeline execution script
 └── CLAUDE.md                # This file (instructions for Claude)
 ```
 
