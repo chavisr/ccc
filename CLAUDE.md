@@ -186,6 +186,7 @@ When adding new agent definitions:
 - Follow clear agent role definition pattern
 - Include examples and templates where applicable
 - Document the agent's purpose and use cases
+- **Must support dual modes**: All agents must include both an interactive workflow (asks questions step-by-step) and a context-driven mode (reads CLAUDE.md for project details and generates output directly)
 
 **Code Example Approach:**
 - **Embedded templates**: All agents include code directly in markdown using code blocks
