@@ -179,15 +179,9 @@ style: |
 <!-- _class: lead -->
 <!-- _paginate: false -->
 
-# Your Presentation Title
-
-## Subtitle or Key Message
-
-**Presenter Name**
-*Your Role/Title*
-
-Date
-
+# Presentation Title
+## Subtitle
+**Presenter Name** | *Role* | Date
 ![bg right:40% 80%](assets/logo.png)
 
 ---
@@ -196,135 +190,43 @@ Date
 
 # Agenda
 
-1. Introduction & Context
-2. Problem Statement
-3. Technical Solution
-4. Architecture & Implementation
-5. Results & Metrics
-6. Q&A
+1. Topic One
+2. Topic Two
+3. Topic Three
 
 ---
 
-# Introduction
+# Content Slide with Image
 
-## Background & Context
+## Section Title
 
-- **Problem**: Brief description of the challenge
-- **Goal**: What we aimed to achieve
-- **Scope**: Boundaries and constraints
+- Point with **emphasis**
+- Point with detail
+  - Sub-point with metrics
 
-![bg right:35% 90%](assets/diagram-1.png)
-
----
-
-# Problem Statement
-
-## Current Challenges
-
-- Challenge 1: Specific technical issue
-  - Impact: Performance degradation
-  - Frequency: Occurred in 40% of requests
-
-- Challenge 2: Another technical issue
-  - Root cause: Legacy architecture limitation
-  - Business impact: $X in lost revenue
+![bg right:35% 90%](assets/diagram.png)
 
 ---
 
-# Technical Solution
-
-## Proposed Architecture
-
-```
-┌─────────────┐      ┌─────────────┐      ┌─────────────┐
-│   Client    │─────▶│  API Gateway│─────▶│   Service   │
-└─────────────┘      └─────────────┘      └─────────────┘
-                            │                     │
-                            ▼                     ▼
-                     ┌─────────────┐      ┌─────────────┐
-                     │    Cache    │      │  Database   │
-                     └─────────────┘      └─────────────┘
-```
-
-**Key Components:**
-- API Gateway: Routes and authenticates requests
-- Service Layer: Business logic and processing
-- Cache: Redis for session management
-- Database: PostgreSQL with read replicas
-
----
-
-# Code Example
-
-## Implementation Snippet
+# Code Example Slide
 
 ```python
-# Authentication middleware
-@app.before_request
-def authenticate():
-    token = request.headers.get('Authorization')
-    if not token:
-        return jsonify({'error': 'Unauthorized'}), 401
-
-    try:
-        user = verify_token(token)
-        g.user = user
-    except InvalidTokenError:
-        return jsonify({'error': 'Invalid token'}), 401
+def example():
+    """Keep code to 10-15 lines max."""
+    return result
 ```
 
 **Key Points:**
-- JWT-based authentication
-- Validates on every request
-- Sets user context in Flask global
+- Highlight what matters about the code
+- Use syntax highlighting
 
 ---
 
-# Architecture Diagram
-
-![center width:900px](assets/architecture-diagram.png)
-
-**Components:**
-- Microservices: Deployed on Kubernetes
-- Message Queue: RabbitMQ for async processing
-- Monitoring: Prometheus + Grafana
-
----
-
-# Results & Metrics
-
-## Performance Improvements
+# Metrics Slide
 
 | Metric | Before | After | Improvement |
 |--------|--------|-------|-------------|
-| Response Time | 450ms | 120ms | **73% faster** |
-| Throughput | 500 req/s | 2000 req/s | **4x increase** |
-| Error Rate | 2.5% | 0.1% | **96% reduction** |
-
-**Business Impact:**
-- Improved user satisfaction (NPS +15)
-- Reduced infrastructure costs by 30%
-- Enabled new product features
-
----
-
-# Lessons Learned
-
-## Key Takeaways
-
-✅ **What Worked Well:**
-- Incremental rollout strategy minimized risk
-- Comprehensive testing caught edge cases
-- Team collaboration across departments
-
-⚠️ **Challenges:**
-- Legacy system integration more complex than expected
-- Required additional cache warming optimization
-- Documentation needed continuous updates
-
-📈 **Next Steps:**
-- Expand to additional regions (Q2 2026)
-- Implement advanced monitoring (Q3 2026)
+| Speed  | 450ms  | 120ms | **73% faster** |
 
 ---
 
@@ -332,24 +234,8 @@ def authenticate():
 <!-- _paginate: false -->
 
 # Questions?
-
-**Contact:**
-Your Name
-your.email@example.com
-
+**Contact:** name@example.com
 ![bg right:40% 80%](assets/logo.png)
-
----
-
-<!-- _class: lead -->
-<!-- _paginate: false -->
-
-# Thank You
-
-**Resources:**
-- Documentation: https://docs.example.com
-- GitHub: https://github.com/yourorg/project
-- Slack: #your-channel
 ```
 
 ---
@@ -392,15 +278,9 @@ style: |
 <!-- _class: lead -->
 <!-- _paginate: false -->
 
-# Your Presentation Title
-
-## Making Complex Simple
-
-**Presenter Name**
-*Your Role*
-
-Date
-
+# Presentation Title
+## Tagline or Key Message
+**Presenter Name** | *Role* | Date
 ![bg right:40% 80%](assets/logo.png)
 
 ---
@@ -409,10 +289,10 @@ Date
 
 # Today's Journey
 
-1. 🎯 **The Challenge** - What we're solving
-2. 💡 **Our Solution** - How we're solving it
-3. 📈 **The Results** - What we achieved
-4. 🚀 **What's Next** - Where we're going
+1. **The Challenge** - What we're solving
+2. **Our Solution** - How we're solving it
+3. **The Results** - What we achieved
+4. **What's Next** - Where we're going
 
 ---
 
@@ -420,215 +300,63 @@ Date
 
 # The Challenge
 
-## What Our Customers Were Experiencing
+## Pain Points
 
-😟 **Customer Pain Point 1**
-Long wait times affecting daily operations
+**Pain Point 1**
+Brief description of customer impact
 
-😟 **Customer Pain Point 2**
-Inconsistent experience across channels
-
-😟 **Customer Pain Point 3**
-High costs impacting budget
+**Pain Point 2**
+Brief description of business impact
 
 ---
 
-# The Impact
+# Two-Column Layout
 
 <div class="columns">
 <div>
 
 ## By the Numbers
 
-- **40%** of customers experienced delays
-- **$2M** annual revenue at risk
-- **25%** customer satisfaction drop
+- **40%** experienced delays
+- **$2M** revenue at risk
 
 </div>
 <div>
 
 ## Real Stories
 
-> "We were losing clients because the system couldn't keep up with demand."
+> "Quote from stakeholder."
 >
-> — *Customer Success Team*
+> — *Name, Title*
 
 </div>
 </div>
 
 ---
 
-<!-- _class: lead -->
+# Image with Content
 
-# Our Solution
+![bg right:45% 90%](assets/illustration.png)
 
-## Three Key Improvements
-
----
-
-# Improvement 1: Speed
-
-![bg right:45% 90%](assets/speed-illustration.png)
-
-## Faster Performance
+## Section Title
 
 **What We Did:**
-Upgraded our system infrastructure
+Brief description
 
 **Customer Benefit:**
-- Tasks that took **8 minutes** now take **2 minutes**
-- Customers can accomplish **4x more** in the same time
-
----
-
-# Improvement 2: Reliability
-
-![bg right:45% 90%](assets/reliability-illustration.png)
-
-## Consistent Experience
-
-**What We Did:**
-Unified all customer touchpoints
-
-**Customer Benefit:**
-- Same smooth experience everywhere
-- **99.9% uptime** guarantee
-- Problems resolved **96% faster**
-
----
-
-# Improvement 3: Cost Savings
-
-![bg right:45% 90%](assets/savings-illustration.png)
-
-## Better Efficiency
-
-**What We Did:**
-Optimized how resources are used
-
-**Customer Benefit:**
-- **30% reduction** in operational costs
-- Reinvest savings into new features
-- More value for the same budget
+- Metric-driven result
+- Business outcome
 
 ---
 
 <!-- _backgroundColor: #e8f4f8 -->
 
-# The Results
-
-## Measurable Success
+# Results Table
 
 | Area | Before | After | Impact |
 |------|--------|-------|--------|
-| 🚀 Speed | Slow | **4x Faster** | ⭐⭐⭐⭐⭐ |
-| 💪 Reliability | 95% | **99.9%** | ⭐⭐⭐⭐⭐ |
-| 💰 Cost | High | **-30%** | ⭐⭐⭐⭐⭐ |
-| 😊 Satisfaction | 60% | **90%** | ⭐⭐⭐⭐⭐ |
-
----
-
-# Customer Success Story
-
-![bg right:40% 90%](assets/customer-photo.jpg)
-
-## Real-World Impact
-
-**Acme Corp Case Study:**
-
-- Reduced processing time from **45 min → 10 min**
-- Handled **3x more customers** with same team
-- Customer complaints dropped **80%**
-
-> "This has transformed how we serve our clients."
-> — *Jane Doe, VP Operations*
-
----
-
-# Return on Investment
-
-## Financial Impact (Year 1)
-
-```
-Investment Made:          $500K
-Annual Savings:          $800K
-Revenue Increase:        $1.2M
-────────────────────────────────
-Net Benefit Year 1:      $1.5M
-
-ROI: 300%
-Payback Period: 6 months
-```
-
-**Bottom Line:** Every dollar invested returns **$3** in first year
-
----
-
-<!-- _class: lead -->
-
-# What's Next?
-
-## Our Roadmap
-
----
-
-# Phase 1: This Quarter
-
-![bg right:35% 90%](assets/roadmap-q1.png)
-
-## Quick Wins ✅
-
-- **Launch**: New customer portal
-  - *Self-service capabilities*
-
-- **Expand**: Roll out to 5 more regions
-  - *Reach 50K more customers*
-
-- **Enhance**: Mobile app improvements
-  - *Access anywhere, anytime*
-
----
-
-# Phase 2: Next 6 Months
-
-![bg right:35% 90%](assets/roadmap-q2.png)
-
-## Strategic Growth 🚀
-
-- **AI Integration**: Smart recommendations
-  - *Personalized customer experience*
-
-- **Partner Integrations**: Connect with 3rd party tools
-  - *Streamline workflows*
-
-- **Advanced Analytics**: Better insights
-  - *Data-driven decisions*
-
----
-
-# The Vision
-
-![center width:800px](assets/vision-diagram.png)
-
-## Where We're Headed
-
-**Mission:** Become the industry leader in customer experience
-
-**Goal:** Serve **1 million customers** by 2027 with **95%+ satisfaction**
-
----
-
-<!-- _backgroundColor: #f0f8ff -->
-
-# Key Takeaways
-
-## Remember These Points
-
-1. 💡 We solved real customer pain points
-2. 📈 Results are measurable and significant
-3. 💰 Strong return on investment
-4. 🚀 Clear roadmap for continued improvement
-5. 🎯 Focused on customer success
+| Speed | Slow | **4x Faster** | High |
+| Cost | High | **-30%** | High |
 
 ---
 
@@ -636,25 +364,8 @@ Payback Period: 6 months
 <!-- _paginate: false -->
 
 # Questions?
-
-**Let's Discuss**
-
-Your Name
-your.email@example.com
-
+**Contact:** name@example.com
 ![bg right:40% 80%](assets/logo.png)
-
----
-
-<!-- _class: lead -->
-<!-- _paginate: false -->
-
-# Thank You
-
-**Stay Connected:**
-📧 your.email@example.com
-🌐 www.yourwebsite.com
-💼 linkedin.com/in/yourprofile
 ```
 
 ---

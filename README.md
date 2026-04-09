@@ -45,7 +45,7 @@ Based on the Google Shell Style Guide:
 Custom skills that can be invoked via slash commands:
 
 - **/commit** - Git commit convention helper
-- **/nixit** - Nix environment utilities
+- **/nixit** - Generate flake.nix for project dependency management using Nix
 
 ## Examples
 

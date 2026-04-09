@@ -193,7 +193,7 @@ pipeline {
             echo '\033[0;33m *** Job UNSTABLE ***'
         }
         failure {
-            echo '\033[0;33m *** Job FAILURE ***'
+            echo '\033[0;31m *** Job FAILURE ***'
         }
     }
 }
