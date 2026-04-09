@@ -149,6 +149,35 @@ presentation-project/
 - **Creating presentation for executives/business?** → Use marp-slides.md (non-technical template)
 - **Need professional slide deck from markdown?** → Use marp-slides.md
 
+## Kubernetes Manifest Agent
+
+The repository includes a specialized agent for creating Kubernetes manifests using Kustomize.
+
+### Available Agent
+
+**kube-manifest.md** - Creates Kubernetes manifests with Kustomize overlays
+- Use for: Writing K8s manifests for applications across environments
+- Structure: Always uses flat overlay layout (base/, dev/, staging/, production/)
+- Resources: Deployment, Service, ConfigMap, Secret, Ingress, HPA
+- Mode: Interactive questions or context-driven from CLAUDE.md
+
+### Kubernetes Manifest Principles
+
+The agent follows these core principles:
+- **Kustomize**: Always use Kustomize with flat overlays — never an `overlays/` parent directory
+- **Base**: Complete, valid resources that work standalone
+- **Overlays**: Only contain patches for environment-specific differences
+- **Labels**: Follow `app.kubernetes.io/*` convention
+- **Health**: Always include liveness and readiness probes
+- **Security**: runAsNonRoot, readOnlyRootFilesystem, drop ALL capabilities
+- **Secrets**: Never hardcode secret values in manifests
+
+### When to Use Kubernetes Agent
+
+- **Creating K8s manifests for an app?** → Use kube-manifest.md
+- **Need Kustomize overlay structure?** → Use kube-manifest.md
+- **Setting up multi-environment deployments?** → Use kube-manifest.md
+
 ## Working with This Repository
 
 ### Adding New Agents

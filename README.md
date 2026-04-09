@@ -40,6 +40,13 @@ Based on the Google Shell Style Guide:
   - Complete pipeline template embedded in agent markdown
   - Covers credentials handling, Docker integration, post-build cleanup
 
+### Kubernetes Manifest Agent
+
+- **kube-manifest.md** - Creates Kubernetes manifests using Kustomize
+  - Flat overlay structure: base/, dev/, staging/, production/
+  - Core workloads: Deployment, Service, ConfigMap, Ingress, HPA
+  - Interactive or context-driven from CLAUDE.md
+
 ## Skills
 
 Custom skills that can be invoked via slash commands:
@@ -55,6 +62,10 @@ The `examples/` directory contains example CLAUDE.md files demonstrating how to 
   - Interactive workflow demonstration
   - Common use cases and tips
   - Sample requests and expected outputs
+
+- **kube-manifest-CLAUDE.md** - Example showing how to use the kube-manifest subagent
+  - Application details, resources, and networking config
+  - Per-environment settings template
 
 ## Agent Design Pattern
 
