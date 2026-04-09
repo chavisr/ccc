@@ -157,14 +157,15 @@ theme: default
 paginate: true
 style: |
   section {
-    font-size: 28px;
+    font-size: 22px;
+    padding-bottom: 60px;
   }
   h1 {
-    font-size: 48px;
+    font-size: 36px;
     color: #2c3e50;
   }
   h2 {
-    font-size: 40px;
+    font-size: 30px;
     color: #34495e;
   }
   code {
@@ -258,14 +259,15 @@ theme: gaia
 paginate: true
 style: |
   section {
-    font-size: 32px;
+    font-size: 24px;
+    padding-bottom: 60px;
   }
   h1 {
-    font-size: 56px;
+    font-size: 40px;
     color: #1a1a1a;
   }
   h2 {
-    font-size: 42px;
+    font-size: 32px;
     color: #333333;
   }
   strong {
@@ -472,7 +474,8 @@ Add inline styles for customization:
 ---
 style: |
   section {
-    font-size: 28px;
+    font-size: 22px;
+    padding-bottom: 60px;
   }
   h1 {
     color: #2c3e50;
@@ -571,7 +574,7 @@ When creating a Marp presentation, provide:
 - One main idea per slide
 - Use high-quality images (1920x1080 recommended)
 - Consistent color scheme
-- Readable font sizes (28px+ for body, 48px+ for titles)
+- Readable font sizes (22-24px body, 36-40px titles)
 - Leave margins (don't fill edge-to-edge)
 - Test HTML export early
 
