@@ -13,6 +13,7 @@ Personal repository for Claude Code agents, skills, and configurations. Not a so
 | `marp-slides` | Creating Marp presentations (technical or non-technical) |
 | `kube-manifest` | Creating K8s manifests with Kustomize (base/dev/staging/production) |
 | `readme-writer` | Generating README.md by analyzing project structure and tech stack |
+| `dockerfile` | Writing optimized, multi-stage Dockerfiles with .dockerignore |
 
 ## Skills
 
