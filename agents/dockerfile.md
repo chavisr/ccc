@@ -1,7 +1,7 @@
 ---
 name: dockerfile
 description: Writes optimized, multi-stage Dockerfiles with security best practices and .dockerignore
-model: sonnet
+model: haiku
 tools:
   - Read
   - Write

@@ -1,7 +1,7 @@
 ---
 name: kube-manifest
 description: Creates Kubernetes manifests using Kustomize with base/dev/staging/production overlays
-model: sonnet
+model: haiku
 tools:
   - Read
   - Write

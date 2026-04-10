@@ -1,7 +1,7 @@
 ---
 name: shell-reviewer
 description: Reviews shell scripts for compliance with Google Shell Style Guide
-model: sonnet
+model: haiku
 tools:
   - Read
   - Grep
