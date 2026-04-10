@@ -14,6 +14,7 @@ Personal repository for Claude Code agents, skills, and configurations. Not a so
 | `kube-manifest` | Creating K8s manifests with Kustomize (base/dev/staging/production) |
 | `readme-writer` | Generating README.md by analyzing project structure and tech stack |
 | `dockerfile` | Writing optimized, multi-stage Dockerfiles with .dockerignore |
+| `gitlab-ci` | Creating GitLab CI/CD pipelines (.gitlab-ci.yml) |
 
 ## Skills
 
